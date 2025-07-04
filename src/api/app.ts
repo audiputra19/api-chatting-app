@@ -1,14 +1,14 @@
 import dotenv from 'dotenv';
 dotenv.config();
 import express from "express";
-import contactRouter from "./routers/contactRouter";
+import contactRouter from "../routers/contactRouter";
 import cors from "cors";
-import registerRouter from './routers/registerRouter';
-import userRouter from './routers/userRouter';
+import registerRouter from '../routers/registerRouter';
+import userRouter from '../routers/userRouter';
 import http from "http";
 import { Server } from "socket.io";
-import { registerSocketHandlers } from './socket/socket';
-import chatRouter from './routers/chatRouter';
+import { registerSocketHandlers } from '../socket/socket';
+import chatRouter from '../routers/chatRouter';
 
 const app = express();
 const server = http.createServer(app);

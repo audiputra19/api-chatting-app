@@ -1,8 +1,9 @@
-import { storage } from "firebase-admin";
 import { cert, initializeApp } from "firebase-admin/app";
 import { getDatabase } from "firebase-admin/database";
 
-const serviceAccount = require(process.env.SERVICE_ACCOUNT_PATH!);
+const serviceAccount = JSON.parse(
+  Buffer.from(process.env.SERVICE_ACCOUNT_PATH || "", "base64").toString("utf-8")
+);
 
 initializeApp({
     credential: cert(serviceAccount),

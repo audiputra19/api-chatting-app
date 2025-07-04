@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import { db } from "../config/firebase";
-import { AllContact } from "../interface/contacts";
 
 export const addContactController = async (req: Request, res: Response) => {
     const {userPhone, firstName, lastName, newContact} = req.body;

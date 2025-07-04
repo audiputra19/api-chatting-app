@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/app.ts",
+    "dev": "nodemon src/api/app.ts",
     "build": "tsc",
-    "start": "node dist/app.ts"
+    "start": "node dist/app.ts",
+    "vercel-build": "tsc"
   },
   "keywords": [],
   "author": "",
