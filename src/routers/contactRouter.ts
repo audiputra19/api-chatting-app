@@ -1,8 +1,9 @@
 import { Router } from "express";
-import { addContactController, allContactController } from "../controllers/contactController";
+import { addContactController, allContactController, checkNumberRegisterController } from "../controllers/contactController";
 
 const contactRouter = Router();
 contactRouter.post("/add-contacts", addContactController);
-contactRouter.get("/all-contacts", allContactController);
+contactRouter.post("/all-contacts", allContactController);
+contactRouter.post("/check-number", checkNumberRegisterController);
 
 export default contactRouter;

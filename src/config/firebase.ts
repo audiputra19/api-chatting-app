@@ -1,3 +1,4 @@
+import { storage } from "firebase-admin";
 import { cert, initializeApp } from "firebase-admin/app";
 import { getDatabase } from "firebase-admin/database";
 
