@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 dotenv.config();
-import express from "express";
+import express, { Request, Response } from "express";
 import contactRouter from "../routers/contactRouter";
 import cors from "cors";
 import registerRouter from '../routers/registerRouter';
@@ -25,7 +25,11 @@ app.use('/', chatRouter);
 
 registerSocketHandlers(io);
 
-const port = 3001;
-server.listen(port, () => {
-    console.log(`Listening on port ${port}`)
+app.get('/api/hello', (req: Request, res: Response) => {
+  res.status(200).json({ message: 'Hello from Express + Vercel!' });
 });
+
+// Export as Vercel serverless function
+export default (req: Request, res: Response) => {
+  return app(req, res);
+};
