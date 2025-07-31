@@ -25,6 +25,11 @@ app.use('/', chatRouter);
 
 registerSocketHandlers(io);
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello from Express + TypeScript on Vercel!");
+app.get('/', (req: Request, res: Response) => {
+  res.send('Hello from Render Backend!');
+});
+
+const port = 3001;
+server.listen(port, () => {
+    console.log(`Listening on port ${port}`)
 });

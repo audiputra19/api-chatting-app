@@ -67,7 +67,7 @@ export const chatBoxController = async (req: Request, res: Response) => {
             .all(Object.entries(roomChatData)
             .map(async ([key, roomChat]) => {
 
-            console.log(roomChat.user2);    
+            //console.log(roomChat.user2);    
 
             let lastMessage: Chat | null = null;
             const unreadMessages: Chat[] = [];
@@ -90,6 +90,7 @@ export const chatBoxController = async (req: Request, res: Response) => {
                 }); 
                 
                 const lawanBicara = user === roomChat.user ? roomChat.user2 : roomChat.user;
+                //console.log(lawanBicara);
 
                 const [userSnap, contactSnap] = await Promise.all([
                     db.ref(`users/${lawanBicara}`).once('value'),
@@ -99,7 +100,7 @@ export const chatBoxController = async (req: Request, res: Response) => {
                 const userData: Users = userSnap.val();
                 const contactData: Contact = contactSnap.val();
 
-                const contactName = contactData ? `${contactData.firstName} ${contactData.lastName}` : roomChat.user2;
+                const contactName = contactData ? `${contactData.firstName} ${contactData.lastName}` : lawanBicara;
                 const userProfileImage = userData?.profile_image || null;
 
                 return {
